@@ -1,0 +1,65 @@
+{
+  "name": "n8n-nodes-upwork",
+  "version": "0.1.0",
+  "description": "n8n community node for Upwork API - manage job posts and proposals",
+  "keywords": [
+    "n8n-community-node-package",
+    "upwork",
+    "freelance",
+    "proposals",
+    "jobs"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "author": {
+    "name": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">=18.10",
+    "pnpm": ">=9.1"
+  },
+  "packageManager": "pnpm@9.1.4",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "tsc && gulp build:icons",
+    "dev": "n8n-node dev",
+    "format": "prettier --write . --ignore-path .gitignore",
+    "lint": "eslint nodes credentials --ext .ts",
+    "lint:fix": "eslint nodes credentials --ext .ts --fix",
+    "prepublishOnly": "pnpm build && pnpm lint -c .eslintrc.prepublish.js nodes credentials"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/UpworkOAuth2Api.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Upwork/Upwork.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "^0.17.0",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.0",
+    "gulp": "^4.0.2",
+    "n8n-workflow": "^1.0.0",
+    "prettier": "^3.2.0",
+    "typescript": "^5.3.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
+
