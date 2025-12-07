@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-upwork",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n community node for Upwork API - manage job posts and proposals",
   "keywords": [
     "n8n-community-node-package",
@@ -10,29 +10,26 @@
     "jobs"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/Natural-Heroes/n8n-nodes-upwork",
   "author": {
-    "name": ""
+    "name": "Natural Heroes"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Natural-Heroes/n8n-nodes-upwork.git"
   },
   "engines": {
-    "node": ">=18.10",
-    "pnpm": ">=9.1"
+    "node": ">=18.10"
   },
-  "packageManager": "pnpm@9.1.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "build": "tsc && gulp build:icons",
     "dev": "n8n-node dev",
     "format": "prettier --write . --ignore-path .gitignore",
     "lint": "eslint nodes credentials --ext .ts",
     "lint:fix": "eslint nodes credentials --ext .ts --fix",
-    "prepublishOnly": "pnpm build && pnpm lint -c .eslintrc.prepublish.js nodes credentials"
+    "prepublishOnly": "npm run build && npm run lint -- -c .eslintrc.prepublish.js nodes credentials"
   },
   "files": [
     "dist"
